@@ -1,0 +1,40 @@
+# Byte-compiled / optimized / dll files
+__pycache__/
+*.pyc
+*.pyd
+*.pyo
+*.pyl
+
+# Environments
+.venv/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Editor/IDE-specific files
+.idea/             # IntelliJ IDEA
+.vscode/           # VS Code
+*.iml              # IntelliJ IDEA
+*.code-workspace   # VS Code
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# Logs and databases
+*.log
+*.db
+*.sqlite
+*.sqlite3
+
+# Flask-specific
+instance/
+
+# Pytest
+.pytest_cache/
+.coverage
+
+# Jupyter Notebook (if applicable)
+.ipynb_checkpoints/

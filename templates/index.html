@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veículos Cadastrados</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 2em;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        img {
+            max-width: 150px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Veículos Cadastrados</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Modelo</th>
+                <th>Marca</th>
+                <th>Ano</th>
+                <th>Preço</th>
+                <th>Foto</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for veiculo in veiculos %}
+            <tr>
+                <td>{{ veiculo.id }}</td>
+                <td>{{ veiculo.modelo }}</td>
+                <td>{{ veiculo.marca }}</td>
+                <td>{{ veiculo.ano }}</td>
+                <td>R$ {{ "%.2f"|format(veiculo.preco|float) }}</td>
+                <td><img src="{{ veiculo.foto }}" alt="{{ veiculo.modelo }}"></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
