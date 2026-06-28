@@ -1,14 +1,11 @@
-import psycopg2
+
 from psycopg2.extras import RealDictCursor
+import psycopg2
+from operacoes.banco.bancoKey import get_banco_key
 
 
-conexao = psycopg2.connect(
-	host="",
-	dbname="",
-	user="",
-	password="",
-	port="",
-)
+
+conexao = get_banco_key()
 
 cursor = conexao.cursor(cursor_factory=RealDictCursor)
 

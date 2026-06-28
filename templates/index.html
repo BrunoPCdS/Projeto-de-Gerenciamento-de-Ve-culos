@@ -13,17 +13,31 @@
             width: 100%;
             border-collapse: collapse;
         }
+        h1 {
+            color: #061b36;
+        }
         th, td {
             border: 1px solid #ddd;
             padding: 8px;
             text-align: left;
         }
         th {
-            background-color: #f2f2f2;
+            background-color: #061b36;
+            color: white;
         }
         img {
-            max-width: 150px;
+            max-width: 100px;
             height: auto;
+        }
+
+        .foto-zoom {
+            width: 300px; /* Defina o tamanho inicial da sua foto */
+            transition: transform 0.3s ease; /* Cria o efeito de transição suave */
+        }
+
+        .foto-zoom:hover {
+            transform: scale(3.5); /* Aumenta a foto em 10% quando o mouse passa por cima */
+            cursor: pointer;
         }
     </style>
 </head>
@@ -48,7 +62,7 @@
                 <td>{{ veiculo.marca }}</td>
                 <td>{{ veiculo.ano }}</td>
                 <td>R$ {{ "%.2f"|format(veiculo.preco|float) }}</td>
-                <td><img src="{{ veiculo.foto }}" alt="{{ veiculo.modelo }}"></td>
+                <td><img src="{{ veiculo.foto }}" alt="{{ veiculo.modelo }}" class="foto-zoom"></td>
             </tr>
             {% endfor %}
         </tbody>

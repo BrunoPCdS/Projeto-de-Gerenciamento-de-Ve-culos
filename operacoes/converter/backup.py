@@ -1,7 +1,7 @@
 import csv
-import psycopg2
 from psycopg2.extras import RealDictCursor
 from datetime import datetime
+from operacoes.banco.bancoKey import get_banco_key
 
 def backup_veiculos():
     # Inicializa as variáveis para garantir que o bloco 'finally' consiga fechá-las
@@ -9,13 +9,8 @@ def backup_veiculos():
     cursor = None
     
     try:
-        conexao = psycopg2.connect(
-            host="",
-            dbname="ndbneo",
-            user="",
-            password="",
-            port="",
-        )
+        
+        conexao = get_banco_key()
 
         cursor = conexao.cursor(cursor_factory=RealDictCursor)
 
@@ -57,6 +52,3 @@ def backup_veiculos():
             cursor.close()
         if conexao:
             conexao.close()
-
-# Para testar a função, basta chamá-la:
-backup_veiculos()
